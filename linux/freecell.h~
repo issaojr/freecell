@@ -1,0 +1,31 @@
+#ifndef _FREECELL_H_
+#define _FREECELL_H_
+
+#include "pilha.h"
+#include "baralho.h"
+#include "pilhaini.h"
+#include "pilhainter.h"
+#include "pilhafim.h"
+#include "carta.h"
+
+class Freecell
+{
+private:	
+	PilhaIni *pInicial[8];
+	PilhaFim *pFinal[4];
+	PilhaInter *pInter[4];
+	Baralho *baralho[4];
+public:
+	Freecell(Baralho *baralho, PilhaIni *p1[8], PilhaInter *p2[4], PilhaFim *p3[4]);
+	bool inicia();
+	bool distribui(Pilha *destino);
+	bool move(Pilha *origem, Pilha *destino); // polimorfismo puro!!!! :-D
+	bool ganhou();
+	bool perdeu(); // esse metodo e' complicado
+	PilhaIni *getPini(int i);
+	PilhaFim *getPfim(int i);
+	PilhaInter *getPinter(int i);
+};
+
+#endif
+

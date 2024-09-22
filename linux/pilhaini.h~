@@ -1,0 +1,17 @@
+#ifndef _PILHAINI_H_
+#define _PILHAINI_H_
+#include "pilha.h"
+
+
+class PilhaIni : public Pilha
+{
+private:
+	static Carta *matriz[19][8];
+public:
+	PilhaIni(int tamMax) : Pilha(int tamMax);
+	bool empilha(Carta *x); // sobreposicao de metodo
+	void mostraPilha();		
+};
+
+#endif
+

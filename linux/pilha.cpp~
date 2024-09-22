@@ -1,0 +1,50 @@
+#include "pilha.h"
+#include "carta.h"
+#include <iostream>
+using namespace std;
+Pilha::Pilha()
+{	
+	topo = -1;
+	tamMax = 52;
+	//cartas = new Carta[2];
+}
+
+bool Pilha::empilha(Carta *c)
+{
+	//cartas = new Carta;
+	if(topo < tamMax){
+		cartas[++topo] = *c;
+		return true;
+	}else
+		return false;	
+}
+
+Carta Pilha::desempilha()
+{
+	return cartas[topo--];
+}
+
+Carta Pilha::cartaTopo()
+{
+	//if(!Pilha::estaVazia())
+	return cartas[topo];
+}
+
+bool Pilha::estaVazia(){
+	return (topo == -1);
+}
+
+bool Pilha::estaCheia(){
+	return (topo == tamMax - 1);
+}
+
+int Pilha::getTopo() // metodo para testes
+{
+	return topo;
+}
+
+int Pilha::getTamMax() // metodo para testes
+{
+	return tamMax;
+}
+

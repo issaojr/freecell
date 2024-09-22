@@ -1,0 +1,9 @@
+#include "pilha.h"
+#include "carta.h"
+#include "pilhainter.h"
+
+PilhaInter::PilhaInter() : Pilha::Pilha()
+{
+	cartas = new Carta[1];
+}
+

@@ -1,0 +1,11 @@
+#ifndef _PILHAINTER_H_
+#define _PILHAINTER_H_
+
+class PilhaInter : public Pilha
+{
+public:
+	PilhaInter();	
+};
+
+#endif
+  

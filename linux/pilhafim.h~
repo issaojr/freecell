@@ -1,0 +1,12 @@
+#ifndef _PILHAFIM_HPP_
+#define _PILHAFIM_HPP_
+
+class PilhaFim : public Pilha
+{
+public:
+	PilhaFim();
+	bool empilha(Carta *x); // sobreposicao de metodo
+};
+
+#endif
+ 

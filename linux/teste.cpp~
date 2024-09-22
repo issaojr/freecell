@@ -1,0 +1,15 @@
+#include "freecell.h"
+#include "iu.h"
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+	cout << "Testando freecell..." << endl;
+	Iu *intf = new Iu();
+
+	//intf->
+	
+	return 0;
+}

@@ -1,0 +1,93 @@
+#include "freecell.h"
+#include "pilha.h"
+#include "baralho.h"
+#include "pilhaini.h"
+#include "pilhainter.h"
+#include "pilhafim.h"
+#include "carta.h"
+
+Freecell::Freecell(Baralho *baralho, PilhaIni *p1, PilhaInter *p2, PilhaFim *p3)
+{	
+	this->baralho = baralho;
+	pInicial = p1;
+	pInter = p2;
+	pFim = p3; 	
+}
+
+bool Freecell::inicia()
+{
+	int i = 0;
+	
+	while(!baralho->estaVazia())
+	{
+		if(!(Freecell::distribui(&pInicial[i])))
+			return false;
+		if(i == 7)
+			i = 0;
+		else
+			i++;
+	}	
+		
+	return true;
+}
+
+bool Freecell::distribui(Pilha *destino)
+{
+	Carta cAux;
+		
+	cAux = baralho->desempilha();
+	
+	if(destino->Pilha::empilha(&cAux))
+		return true;
+	else{
+		baralho->empilha(&cAux);
+		return false;
+	}	
+}
+
+bool Freecell::move(Pilha *origem, Pilha *destino)
+{
+	Carta cAux;
+	
+	cAux = origem->desempilha();
+	
+	if(destino->empilha(&cAux))
+		return true;
+	else{
+		origem->empilha(&cAux);
+		return false;
+	}		
+}
+
+bool Freecell::ganhou()
+{
+	bool p[4];
+	int i;
+	
+	for(i = 0; i < 4; i++)
+		p[i] = pFinal[i]->estaCheia();
+		
+	return (p[1] && p[2] && p[3] && p[4]);		
+}
+
+bool Freecell::perdeu()
+{
+	// implementar
+	return false;
+}
+
+PilhaIni *Freecell::getPini(int i)
+{
+	return pInicial[i];
+}
+
+PilhaFim *Freecell::getPfim(int i)
+{
+	return pFinal[i];
+}
+
+PilhaInter *Freecell::getPinter(int i)
+{
+	return pInter[i];
+}
+

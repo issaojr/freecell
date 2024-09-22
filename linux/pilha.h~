@@ -1,0 +1,24 @@
+#ifndef _PILHA_H_
+#define _PILHA_H_
+
+#include "carta.h"
+class Pilha
+{
+protected:
+	int tamMax;
+	int topo;
+	Carta *cartas; // fazer alocacao dinamica nas classes filhas
+	
+public:
+	Pilha(); // construtor	
+	virtual bool empilha(Carta *c); //retorna true se for possivel empilhar
+	virtual Carta desempilha();
+	Carta cartaTopo();
+	bool estaVazia();
+	bool estaCheia();
+	int getTopo(); // para testes
+	
+};
+
+#endif
+

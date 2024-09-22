@@ -1,0 +1,75 @@
+#include "carta.h"
+#include "pilha.h"
+#include "pilhaini.h"
+#include <iostream> // para testes
+
+using namespace std;
+
+PilhaIni::PilhaIni() : Pilha::Pilha()
+{	
+	cartas = new Carta[19]; // cria espacos vazios para cartas	
+}
+
+/* Metodo que sobrepoe metodo empilha() da classe base Pilha. Trata-se de uma
+ * implementacao alternativa, que acrescenta regra de empilhamento 
+ */
+bool PilhaIni::empilha(Carta *c) 
+{
+	Carta cTopo;
+	int vTopo, vEntra;
+	bool nTopo, nEntra;
+	
+	cTopo = this->cartaTopo();
+	vTopo = cTopo.getValor();
+	vEntra = c->getValor();
+	
+	//naipes vermelhos (ouros e copas) sao impares, naipes pretos, pares
+	nTopo = cTopo.getNaipe() % 2 == 0;
+	nEntra = c->getNaipe() % 2 == 0;
+	
+	if((vEntra == vTopo -1 || this->estaVazia()) && nTopo != nEntra)
+	{
+		cartas[++topo] = *c;
+		return true;
+	}else{
+		return false;
+	}
+	
+	cout << "teste\n";	
+}
+
+void PilhaIni::mostraPilha() // para testes
+{
+	int i;
+	string n, v;
+	
+	for(i = 0; i < 19; i++){
+		if(cartas[i].getNaipe() > 0)
+		{
+			switch(cartas[i].getNaipe())
+			{
+			case 1:	n = "\u2660"; break;
+			case 2:	n = "\u2665"; break;
+			case 3:	n = "\u2663"; break;
+			case 4:	n = "\u2666";	break;
+			}
+			
+			switch(cartas[i].getValor()){
+			case 1:	v = "A"; break;
+			case 2:	v = "2"; break;
+			case 3:	v = "3"; break;
+			case 4:	v = "4"; break;
+			case 5:	v = "5"; break;
+			case 6:	v = "6"; break;
+			case 7:	v = "7"; break;
+			case 8:	v = "8"; break;
+			case 9:	v = "9"; break;
+			case 10: v = "10"; break;
+			case 11: v = "J"; break;
+			case 12: v = "Q"; break;
+			case 13: v = "K"; break;
+			}
+			cout << v << n << endl;
+		}
+	}
+}

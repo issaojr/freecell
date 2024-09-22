@@ -1,0 +1,15 @@
+#ifndef _BARALHO_H_
+#define _BARALHO_H_
+//#include "pilha.h"
+
+class Baralho : public Pilha
+{
+private:
+	Carta *c;
+public:
+	Baralho(); // inicializa o baralho
+	//bool distribui(Pilha *destino);
+	//bool embaralha(); // a fazer
+};
+
+#endif

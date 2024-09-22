@@ -1,0 +1,16 @@
+#ifndef _CARTA_HPP_
+#define _CARTA_HPP_ 
+
+class Carta
+{
+private:
+	int valor;
+	int naipe;
+public:
+	Carta();
+	Carta(int naipe, int valor);
+	int getNaipe();
+	int getValor();
+};
+
+#endif

@@ -1,0 +1,21 @@
+﻿Jogo Freecell
+
+v.1.0.0
+
+Data - 26/09/2008 - 14h52
+
+Esta é a versão final do programa Freecell. 
+
+Novidades da versão:
+
+- Pequenas modificações na interface.
+- Adicionado box para confirmação de saída.
+- Makefile revisado.
+- Criação de diretório com arquivos .o.
+- Conio adicionada localmente para facilitar a compilação.
+- conio.c pre-compilado e adicionado a Makefile.
+- Criado destrutor virtual para a classe Pilha.
+- Limpeza de código e revisão de comentários.
+
+Issao
+
